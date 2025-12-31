@@ -1,6 +1,5 @@
 import Screen from "../../components/screen";
 import collage from "../../assets/collage.jpg";
-import { Box } from "@mui/material";
 import collageImg from "../../assets/img04.png";
 
 interface CollageProps {

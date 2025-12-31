@@ -1,4 +1,4 @@
-import { Box, Button as MUIButton, Typography } from "@mui/material";
+import { Box, Button as MUIButton } from "@mui/material";
 import "./index.css";
 import type { MouseEventHandler } from "react";
 import { Typo } from "../screen";

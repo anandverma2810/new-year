@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./App.css";
 import Main from "./pages/main";
 import PreSurprise from "./pages/preSurprise";
