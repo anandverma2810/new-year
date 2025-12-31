@@ -8,6 +8,7 @@ type ButtonProps = {
   onClick: MouseEventHandler;
 };
 
+//This is button component
 const Button = ({ label, onClick }: ButtonProps) => {
   return (
     <Box
