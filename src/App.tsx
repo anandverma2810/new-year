@@ -1,14 +1,15 @@
-import { useEffect, useRef, useState } from "react";
-import "./App.css";
-import Main from "./pages/main";
-import PreSurprise from "./pages/preSurprise";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { Box, Fade } from "@mui/material";
-import NoScreen from "./pages/noScreen";
-import Wish from "./pages/wish";
-import Surprise from "./pages/surprise";
-import Collage from "./pages/collage";
-import Letter from "./pages/letter";
 import song from "./assets/audio/song.mp3";
+import "./App.css";
+
+const Main = lazy(() => import("./pages/main"));
+const PreSurprise = lazy(() => import("./pages/preSurprise"));
+const NoScreen = lazy(() => import("./pages/noScreen"));
+const Wish = lazy(() => import("./pages/wish"));
+const Letter = lazy(() => import("./pages/letter"));
+const Collage = lazy(() => import("./pages/collage"));
+const Surprise = lazy(() => import("./pages/surprise"));
 
 function App() {
   const screens = {
@@ -63,7 +64,7 @@ function App() {
 
   return (
     <>
-      <audio ref={songRef} src={song} preload="auto" loop />
+      {/* <audio ref={songRef} src={song} preload="auto" loop />
 
       <Fade key={screen} in timeout={600}>
         <Box>
@@ -72,7 +73,22 @@ function App() {
             onBack={() => goTo(actions.back as Screen)}
           />
         </Box>
-      </Fade>
+      </Fade> */}
+
+      <>
+        <audio ref={songRef} src={song} preload="auto" loop />
+
+        <Suspense fallback={null}>
+          <Fade key={screen} in timeout={600}>
+            <Box>
+              <ScreenComponent
+                onNext={() => goTo(actions.next as Screen)}
+                onBack={() => goTo(actions.back as Screen)}
+              />
+            </Box>
+          </Fade>
+        </Suspense>
+      </>
     </>
   );
 }

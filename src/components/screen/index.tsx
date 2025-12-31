@@ -6,7 +6,7 @@ export const Typo = styled(Typography)({
   color: "#463030",
   fontFamily: "fantasy",
   fontWeight: 800,
-  fontSize: "1.1rem",
+  fontSize: "1rem",
 });
 
 type ActionButton = {
